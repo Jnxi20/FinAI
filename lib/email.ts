@@ -1,19 +1,20 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize only if key exists to avoid build errors
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function sendWelcomeEmail(email: string, name: string) {
-    if (!process.env.RESEND_API_KEY) {
-        console.log('RESEND_API_KEY not set, skipping email.');
-        return;
-    }
+  if (!resend) {
+    console.log('RESEND_API_KEY not set, skipping email.');
+    return;
+  }
 
-    try {
-        const data = await resend.emails.send({
-            from: 'FinAI <onboarding@resend.dev>', // Use resend.dev for testing without domain
-            to: [email],
-            subject: '¡Bienvenido a FinAI! 🚀',
-            html: `
+  try {
+    const data = await resend.emails.send({
+      from: 'FinAI <onboarding@resend.dev>', // Use resend.dev for testing without domain
+      to: [email],
+      subject: '¡Bienvenido a FinAI! 🚀',
+      html: `
         <div style="font-family: sans-serif; color: #333;">
           <h1>¡Hola ${name}! 👋</h1>
           <p>Bienvenido a <strong>FinAI</strong>, tu nuevo asesor financiero personal con acento argentino.</p>
@@ -28,12 +29,12 @@ export async function sendWelcomeEmail(email: string, name: string) {
           <p><em>El equipo de FinAI</em></p>
         </div>
       `,
-        });
+    });
 
-        console.log('Welcome email sent:', data);
-        return data;
-    } catch (error) {
-        console.error('Error sending welcome email:', error);
-        return null;
-    }
+    console.log('Welcome email sent:', data);
+    return data;
+  } catch (error) {
+    console.error('Error sending welcome email:', error);
+    return null;
+  }
 }

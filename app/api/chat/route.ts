@@ -90,7 +90,7 @@ export async function POST(req: Request) {
     }
 
     const result = await streamText({
-      model: google('gemini-1.5-pro'),
+      model: google('gemini-1.5-flash'),
       system: systemPrompt,
       messages,
       onFinish: async ({ text }) => {

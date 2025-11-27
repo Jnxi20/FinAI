@@ -79,6 +79,9 @@ export default function ChatInterface() {
             }
         } catch (error) {
             console.error('Chat error:', error);
+            // Remove the placeholder if it exists and is empty
+            setMessages(prev => prev.filter(m => m.id !== (Date.now() + 1).toString() || m.content.trim() !== ''));
+
             setMessages(prev => [...prev, {
                 id: Date.now().toString(),
                 role: 'assistant',
@@ -90,8 +93,9 @@ export default function ChatInterface() {
             // Check if the last message (AI) is empty and add a fallback if so
             setMessages(prev => {
                 const lastMsg = prev[prev.length - 1];
-                if (lastMsg.role === 'assistant' && !lastMsg.content.trim() && !lastMsg.data?.isError) {
-                    return prev.map(m => m.id === lastMsg.id ? { ...m, content: '🤔 Mmm... me quedé pensando. ¿Podrías intentar enviarme los datos de nuevo? A veces me mareo con tanta información.' } : m);
+                // Only replace if it's an assistant message, empty, and NOT an error message we just added
+                if (lastMsg?.role === 'assistant' && !lastMsg.content && !lastMsg.data?.isError) {
+                    return prev.map(m => m.id === lastMsg.id ? { ...m, content: '🤔 Mmm... me quedé pensando. ¿Podrías intentar enviarme los datos de nuevo?' } : m);
                 }
                 return prev;
             });

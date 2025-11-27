@@ -96,9 +96,12 @@ export async function POST(req: Request) {
       onFinish: async ({ text }) => {
         console.log('--- AI GENERATION FINISHED ---');
         console.log('Generated text length:', text.length);
+        if (text.length === 0) {
+          console.error('WARNING: AI generated empty text!');
+        }
 
         // Save AI Response if we have a session
-        if (sessionId) {
+        if (sessionId && text.length > 0) {
           try {
             await prisma.message.create({
               data: {

@@ -1,0 +1,179 @@
+{
+    "checklist_financiero_antigravity": {
+        "usuario_id": "user_123",
+        "fecha": "2023-10-27",
+        "secciones": [
+            {
+                "categoria": "Conciencia y Control",
+                "preguntas": [
+                    {
+                        "id": "registro_gastos",
+                        "texto": "¿Cómo llevas el control de lo que gastas mes a mes?",
+                        "opciones": [
+                            {
+                                "valor": "A",
+                                "texto": "Tengo un Excel/App y registro cada centavo.",
+                                "tag": "control_total"
+                            },
+                            {
+                                "valor": "B",
+                                "texto": "Tengo una idea mental aproximada, pero no anoto nada.",
+                                "tag": "control_intuitivo"
+                            },
+                            {
+                                "valor": "C",
+                                "texto": "No tengo idea en qué se me va el dinero, desaparece.",
+                                "tag": "descontrol"
+                            },
+                            {
+                                "valor": "D",
+                                "texto": "¿Debería registrar mis gastos? No sé por dónde empezar.",
+                                "tag": "educacion_basica"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "flujo_neto",
+                        "texto": "A fin de mes, ¿cuál es tu situación habitual?",
+                        "opciones": [
+                            {
+                                "valor": "A",
+                                "texto": "Me sobra dinero y lo separo para ahorrar/invertir.",
+                                "tag": "superavit"
+                            },
+                            {
+                                "valor": "B",
+                                "texto": "Termino tablas (ni gano ni pierdo).",
+                                "tag": "equilibrio_fragil"
+                            },
+                            {
+                                "valor": "C",
+                                "texto": "Tengo que usar tarjeta o pedir prestado para terminar el mes.",
+                                "tag": "deficit"
+                            },
+                            {
+                                "valor": "D",
+                                "texto": "No estoy seguro, nunca reviso mis cuentas a fin de mes.",
+                                "tag": "ceguera_financiera"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "categoria": "Seguridad (Gravedad)",
+                "preguntas": [
+                    {
+                        "id": "fondo_emergencia",
+                        "texto": "¿Cuentas con un Fondo de Emergencia?",
+                        "opciones": [
+                            {
+                                "valor": "A",
+                                "texto": "Sí, tengo guardados entre 3 a 6 meses de mis gastos.",
+                                "tag": "blindado"
+                            },
+                            {
+                                "valor": "B",
+                                "texto": "Tengo algo guardado, pero no llega a cubrir 1 mes.",
+                                "tag": "proteccion_parcial"
+                            },
+                            {
+                                "valor": "C",
+                                "texto": "No, si pasa algo grave dependo de deuda o familia.",
+                                "tag": "vulnerable"
+                            },
+                            {
+                                "valor": "D",
+                                "texto": "¿Qué es un Fondo de Emergencia? Nunca escuché eso.",
+                                "tag": "concepto_nuevo"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "categoria": "Deudas",
+                "preguntas": [
+                    {
+                        "id": "estado_deudas",
+                        "texto": "¿Cómo describirías tu relación actual con las deudas?",
+                        "opciones": [
+                            {
+                                "valor": "A",
+                                "texto": "Cero deudas malas (o solo pago hipoteca/inversión).",
+                                "tag": "libre"
+                            },
+                            {
+                                "valor": "B",
+                                "texto": "Pago el total de la tarjeta, pero me duele hacerlo.",
+                                "tag": "al_limite"
+                            },
+                            {
+                                "valor": "C",
+                                "texto": "Pago el mínimo de la tarjeta o tengo préstamos atrasados.",
+                                "tag": "emergencia_deuda"
+                            },
+                            {
+                                "valor": "D",
+                                "texto": "No entiendo bien cómo funcionan los intereses ni mi estado de deuda.",
+                                "tag": "educacion_deuda"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "categoria": "Inversiones (Despegue)",
+                "preguntas": [
+                    {
+                        "id": "inversiones_activas",
+                        "texto": "¿Haces que tu dinero genere más dinero?",
+                        "opciones": [
+                            {
+                                "valor": "A",
+                                "texto": "Sí, tengo un portafolio diversificado (Acciones, Crypto, Bonos, etc.).",
+                                "tag": "inversor"
+                            },
+                            {
+                                "valor": "B",
+                                "texto": "Solo uso Plazos Fijos o cuentas remuneradas (bajo riesgo).",
+                                "tag": "ahorrador_conservador"
+                            },
+                            {
+                                "valor": "C",
+                                "texto": "Guardo dinero bajo el colchón o en el banco sin moverlo.",
+                                "tag": "perdida_inflacion"
+                            },
+                            {
+                                "valor": "D",
+                                "texto": "No sé qué es invertir ni cómo se hace.",
+                                "tag": "educacion_inversiones"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "interes_compuesto",
+                        "texto": "¿Entiendes cómo funciona el interés compuesto?",
+                        "opciones": [
+                            {
+                                "valor": "A",
+                                "texto": "Sí, es la base de mi estrategia a largo plazo.",
+                                "tag": "conocimiento_avanzado"
+                            },
+                            {
+                                "valor": "B",
+                                "texto": "He escuchado el término, pero no sé aplicarlo.",
+                                "tag": "conocimiento_teorico"
+                            },
+                            {
+                                "valor": "C",
+                                "texto": "No, ni idea de qué es eso.",
+                                "tag": "concepto_clave_faltante"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+RESUMEN FINANCIERO PERSONAL
+---------------------------
+Por favor completa los siguientes datos para un mejor análisis.
+
+1. INGRESOS MENSUALES
+- Salario Neto: $0
+- Otros Ingresos: $0
+- Total Ingresos: $0
+
+2. GASTOS MENSUALES (Aproximados)
+- Vivienda (Alquiler/Hipoteca): $0
+- Servicios y Comida: $0
+- Transporte: $0
+- Entretenimiento/Varios: $0
+- Total Gastos: $0
+
+3. DEUDAS ACTUALES
+- Tarjetas de Crédito: $0 (Tasa aprox: %)
+- Préstamos Personales: $0
+- Otros: $0
+
+4. AHORROS E INVERSIONES
+- Fondo de Emergencia: $0
+- Ahorros Generales: $0
+- Inversiones: $0
+
+5. OBJETIVOS FINANCIEROS
+(Describe brevemente qué quieres lograr, ej: comprar casa, salir de deudas, retiro)
+- Objetivo 1: 
+- Objetivo 2: 
+
+---------------------------
+Sube este archivo al chat para recibir tu diagnóstico.

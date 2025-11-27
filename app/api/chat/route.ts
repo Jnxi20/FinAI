@@ -85,8 +85,12 @@ export async function POST(req: Request) {
     Si menciona "Checklist", decile que te pase los datos para analizar su situación juntos.
   `;
 
+    if (!process.env.GOOGLE_API_KEY) {
+      return new Response(JSON.stringify({ error: 'GOOGLE_API_KEY not set' }), { status: 500 });
+    }
+
     const result = await streamText({
-      model: google('gemini-2.5-flash'),
+      model: google('gemini-1.5-flash'),
       system: systemPrompt,
       messages,
       onFinish: async ({ text }) => {

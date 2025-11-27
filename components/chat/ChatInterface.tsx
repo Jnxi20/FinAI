@@ -79,7 +79,12 @@ export default function ChatInterface() {
             }
         } catch (error) {
             console.error('Chat error:', error);
-            // Optionally add an error message to the chat
+            setMessages(prev => [...prev, {
+                id: Date.now().toString(),
+                role: 'assistant',
+                content: '⚠️ Hubo un error al conectar con la IA. Por favor, verifica tu conexión o intenta de nuevo más tarde.',
+                data: { isError: true }
+            }]);
         } finally {
             setIsLoading(false);
         }
@@ -144,7 +149,7 @@ Por favor analiza este documento y extrae la información financiera relevante p
                                 <h2 className="text-3xl font-medium text-white tracking-tight">¿En qué te ayudo hoy?</h2>
                             </div>
                         )}
-                        {messages.map((m: any, index: number) => (
+                        {messages.filter((m: any) => !m.data?.isHidden).map((m: any, index: number) => (
                             <motion.div
                                 key={m.id}
                                 initial={{ opacity: 0, y: 10 }}
@@ -177,7 +182,7 @@ Por favor analiza este documento y extrae la información financiera relevante p
                                         ) : (
                                             <TypewriterMessage
                                                 content={m.content}
-                                                isStreaming={isLoading && index === messages.length - 1}
+                                                isStreaming={isLoading && index === messages.filter((msg: any) => !msg.data?.isHidden).length - 1}
                                             />
                                         )}
                                     </div>

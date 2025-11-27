@@ -20,9 +20,9 @@ export async function GET() {
         }
 
         // Try a simple generation
-        console.log('Attempting generateText with gemini-1.5-flash...');
+        console.log('Attempting generateText with gemini-pro...');
         const result = await generateText({
-            model: google('gemini-1.5-flash'),
+            model: google('gemini-pro'),
             prompt: 'Responde solo con la palabra: FUNCIONA',
         });
 

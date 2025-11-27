@@ -87,6 +87,14 @@ export default function ChatInterface() {
             }]);
         } finally {
             setIsLoading(false);
+            // Check if the last message (AI) is empty and add a fallback if so
+            setMessages(prev => {
+                const lastMsg = prev[prev.length - 1];
+                if (lastMsg.role === 'assistant' && !lastMsg.content.trim() && !lastMsg.data?.isError) {
+                    return prev.map(m => m.id === lastMsg.id ? { ...m, content: '🤔 Mmm... me quedé pensando. ¿Podrías intentar enviarme los datos de nuevo? A veces me mareo con tanta información.' } : m);
+                }
+                return prev;
+            });
         }
     };
 

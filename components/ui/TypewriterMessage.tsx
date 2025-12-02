@@ -53,11 +53,4 @@ export function TypewriterMessage({ content, isStreaming = false }: TypewriterMe
         </div>
     );
 }
-{
-    displayedContent.length < content.length && (
-        <span className="inline-block w-2 h-5 ml-1 align-middle bg-indigo-500 animate-pulse rounded-sm shadow-[0_0_8px_rgba(99,102,241,0.5)]" />
-    )
-}
-        </div >
-    );
-}
+

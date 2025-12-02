@@ -29,6 +29,25 @@ export default function ChatInterface() {
     };
 
     useEffect(() => {
+        const fetchHistory = async () => {
+            try {
+                const res = await fetch('/api/chat/history');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.messages && data.messages.length > 0) {
+                        setMessages(data.messages);
+                        setHasWelcomed(true); // Don't show welcome if we have history
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching history:', error);
+            }
+        };
+
+        fetchHistory();
+    }, []);
+
+    useEffect(() => {
         scrollToBottom();
     }, [messages]);
 

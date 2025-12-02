@@ -51,8 +51,24 @@ export default function ChatInterface() {
         scrollToBottom();
     }, [messages]);
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    useEffect(() => {
+        if (textareaRef.current) {
+            textareaRef.current.style.height = 'auto';
+            textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+        }
+    }, [input]);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setInput(e.target.value);
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleFormSubmit(e as any);
+        }
     };
 
     const sendMessage = async (messagePayload: { role: string, content: string, data?: any }) => {
@@ -264,19 +280,21 @@ Por favor analiza este documento y extrae la información financiera relevante p
                             <Check className="w-5 h-5" />
                         </button>
 
-                        <input
+                        <textarea
+                            ref={textareaRef}
                             className="flex-1 bg-transparent border-none px-4 py-3.5 text-[17px] text-white placeholder-gray-500 focus:outline-none focus:ring-0 max-h-48 overflow-y-auto resize-none"
                             value={input}
                             onChange={handleInputChange}
+                            onKeyDown={handleKeyDown}
                             placeholder="Escribí tu mensaje..."
                             disabled={isLoading}
-                            autoComplete="off"
+                            rows={1}
                         />
 
                         <button
                             type="submit"
                             disabled={isLoading || !input.trim()}
-                            className={`p-2.5 m-1 rounded-full transition-all duration-200 ${input.trim()
+                            className={`p-2.5 m-1 rounded-full transition-all duration-200 self-end ${input.trim()
                                 ? 'bg-white text-black hover:bg-gray-200'
                                 : 'bg-gray-700 text-gray-500 cursor-not-allowed'
                                 }`}
